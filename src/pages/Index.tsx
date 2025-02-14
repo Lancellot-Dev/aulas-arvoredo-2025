@@ -15,133 +15,47 @@ const slides = [
     id: 2,
     topic: "Desenvolvimento",
     title: "Crescimento e Oportunidades",
-    content: `O crescimento do Instituto Arvoredo foi marcado por importantes conquistas e aprendizados:
-
-Expansão Digital:
-• Alcance de mais de meio milhão de pessoas
-• Desenvolvimento de presença online significativa
-
-Evolução Estratégica:
-• Reestruturação da proposta de valor
-• Organização mais estruturada das ações
-• Melhor engajamento com diferentes públicos:
-  - Indivíduos
-  - Empresas
-  - Escolas
-  - Voluntários
-
-Marco Transformador:
-• Convite para palestra em SIPAT de multinacional
-• "Hábitos Angulares" como ponto de virada
-• Início de um novo ciclo de sucesso`,
+    content: `O rápido crescimento digital do Instituto Arvoredo fez com que sua mensagem alcançasse mais de meio milhão de pessoas em pouco tempo. No entanto, apesar desse sucesso online, as parcerias desejadas não estavam se concretizando, o que levou à percepção de que a proposta de valor precisava ser mais clara e direcionada. Com o auxílio de especialistas, o Instituto passou a organizar suas ações de forma mais estruturada, facilitando o engajamento de diferentes públicos, como indivíduos, empresas, escolas e voluntários. A grande virada aconteceu quando o Instituto foi convidado para palestrar em uma SIPAT de uma multinacional, onde a palestra "Hábitos Angulares" marcou o início de um novo ciclo de sucesso.
+`,
     image: "photo-1518770660439-4636190af475"
   },
   {
     id: 3,
     topic: "Expansão",
     title: "Expansão e Melhoria Contínua",
-    content: `O Instituto Arvoredo cresceu significativamente após seu marco transformador:
-
-Projetos Iniciais:
-• Plantio de 200 mudas no Parque da Cidade de Brasília
-• Participação de 30 pessoas no primeiro projeto
-• Aprendizado sobre o bioma Cerrado com Profª Rosângela Corrêa
-
-Crescimento Estrutural:
-• Criação do Espaço Cerrado para educação ambiental
-• Aquisição de área de 20 hectares para nova sede
-• Foco em restauração ecológica
-• Promoção do bioma Cerrado
-
-Alcance Atual:
-• Credenciamento pelo Governo do DF para o Reciclotech
-• Atuação em 14 estados
-• Expansão para 4 países
-• União de milhares de pessoas
-• Oferta de educação ambiental e trilhas ecológicas`,
+    content: `Após o sucesso da palestra, o Instituto Arvoredo começou a expandir suas ações, iniciando com o plantio de 200 mudas no Parque da Cidade de Brasília, contando com a participação de 30 pessoas. Esse projeto cresceu rapidamente, assim como a compreensão sobre o bioma Cerrado, graças à orientação da Professora Rosângela Corrêa. A partir desse conhecimento, o Instituto criou o Espaço Cerrado, um local dedicado à educação ambiental e atividades sociais. O crescimento contínuo levou à aquisição de uma área de 20 hectares, onde foi estabelecida a nova sede do Instituto. A partir dessa base, o foco se expandiu para incluir restauração ecológica e a promoção do Cerrado. Hoje, o Instituto Arvoredo é credenciado pelo Governo do Distrito Federal para o programa Reciclotech e atua em mais de 14 estados, expandindo para 4 países. O Instituto continua a unir milhares de pessoas em prol de um futuro mais sustentável, oferecendo educação ambiental, trilhas ecológicas e muito mais.
+`,
     image: "photo-1488590528505-98d2b5aba04b"
   },
   {
     id: 4,
     topic: "Projeto",
     title: "O que é o Projeto Reciclotech?",
-    content: `O Projeto Reciclotech representa um dos pilares mais importantes do Instituto Arvoredo:
-
-Objetivos e Credenciamento:
-• Programa credenciado pelo Governo do DF
-• Foco no descarte adequado de lixo eletrônico
-• Transformação de desafios em oportunidades
-
-Áreas de Capacitação:
-• Informática básica
-• Manutenção de computadores
-• Robótica
-• Formação profissional para jovens e adultos
-
-Impacto Social e Ambiental:
-• Recondicionamento de eletrônicos
-• Doação de equipamentos recuperados para:
-  - Entidades privadas sem fins lucrativos
-  - Órgãos públicos
-• Promoção da inclusão digital
-• Educação ambiental
-• Conexão com comunidades`,
+    content: `O Projeto Reciclotech é um dos pilares mais recentes e importantes do Instituto Arvoredo. Credenciado pelo Governo do Distrito Federal, o Reciclotech foi criado com o objetivo de enfrentar um dos maiores desafios ambientais da atualidade: o descarte inadequado de lixo eletrônico. O programa visa transformar esse desafio em oportunidade, oferecendo capacitação profissional para jovens e adultos em áreas como informática básica, manutenção de computadores e robótica.
+`,
     image: "photo-1555949963-ff9fe0c870eb"
   },
   {
     id: 5,
     topic: "Parceiro",
     title: "Uniprocessus",
-    content: `A Uniprocessus tem uma história rica de excelência em educação:
-
-Origem e Fundação:
-• Fundada em 1991
-• Início com cursos preparatórios para carreiras jurídicas
-• Primeira aula ministrada pelo Prof. Jaci Fernandes de Araújo
-• Forte compromisso com qualidade de ensino
-
-Evolução e Reconhecimento:
-• Expansão além da área jurídica
-• Cursos em Administração Pública
-• Ciências Contábeis
-• Gestão de Recursos Humanos
-• Excelente avaliação pelo MEC
-
-Modalidades de Ensino:
-• Graduação presencial e EAD
-• Pós-graduação e mestrado
-• Preparatórios para concursos
-• Cursos para OAB
-• Formação completa e especializada`,
+    content: `A Uniprocessus, com sua razão social de Instituto Processus de Cultura e Aperfeiçoamento Jurídico Ltda, começou em 1991 oferecendo cursos preparatórios para concursos de alto nível, especialmente para carreiras jurídicas como Juiz de Direito e Promotor de Justiça. Desde a primeira aula ministrada por seu fundador, o Professor Jaci Fernandes de Araújo, a instituição foi moldada com um forte compromisso com a qualidade de ensino, o que a levou a se tornar um centro de referência em educação jurídica no Distrito Federal e em todo o Brasil.
+    
+`,
     image: "photo-1485827404703-89b55fcc595e"
   },
   {
     id: 6,
     topic: "Parceria",
     title: "Parceria com a Uniprocessus",
-    content: `Nossa parceria com a Uniprocessus oferece oportunidades únicas de formação:
-
-Cursos Profissionalizantes:
-• Informática de nível médio e básico
-• Montagem de computadores
-• Pacote Office completo
-• Design gráfico com Canva
-• Inteligência artificial
-• Redes sociais
+    content: `O Instituto Arvoredo firmou uma parceria com a Uniprocessus, um centro universitário, para oferecer curso profissionalizante em informática de nível básico. Esses cursos abrangem montagem de computadores, o pacote Office, design gráfico básico com foco na ferramenta Canva, além de temas emergentes como inteligência artificial e redes sociais.
 
 Horários Flexíveis:
 • Segunda a quinta-feira
 • Períodos disponíveis:
   - Matutino
   - Vespertino
-  - Noturno
-
-Oportunidades para Alunos Reciclotech:
-• Continuidade da formação
-• Acesso a cursos superiores
-• Desenvolvimento profissional contínuo
-• Matrícula facilitada
-• Suporte educacional completo`,
+  - Noturno`,
     image: "photo-1487611459768-bd0929079118"
   },
   {
