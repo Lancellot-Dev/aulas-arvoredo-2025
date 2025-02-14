@@ -8,15 +8,7 @@ const slides = [
     id: 1,
     topic: "História",
     title: "Fundação e Início",
-    content: `O Instituto Arvoredo foi fundado em junho de 2016, movido pela paixão dos seus fundadores pelo meio ambiente. Nossa história começa de forma humilde e inspiradora:
-
-• Início em uma garagem como espaço de operações
-• Atividades realizadas nos intervalos dos trabalhos regulares
-• Forte estratégia de presença digital inicial
-• Foco no Facebook e site com conteúdo educativo
-• Disseminação de informações ambientais relevantes
-
-O Instituto nasceu no ambiente digital com o objetivo claro de inspirar ações ambientais e compartilhar conhecimento especializado.`,
+    content: `O Instituto Arvoredo foi fundado em junho de 2016, movido pela paixão dos seus fundadores pelo meio ambiente. No início, sem uma sede própria, as atividades eram realizadas nos intervalos dos trabalhos regulares, utilizando a garagem de casa como espaço de operações. A estratégia inicial focou em fortalecer a presença digital, principalmente por meio do Facebook, além da criação de um site com conteúdo educativo e artigos especializados. Assim, o Instituto Arvoredo nasceu no ambiente digital, com o objetivo de disseminar informações relevantes e inspirar ações ambientais.`,
     image: "photo-1461749280684-dccba630e2f6"
   },
   {
