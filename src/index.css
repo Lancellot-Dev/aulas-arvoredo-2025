@@ -34,7 +34,7 @@
 }
 
 .slide-container {
-  @apply max-w-6xl mx-auto px-4 py-8;
+  @apply max-w-6xl mx-auto px-4 py-12;
 }
 
 .slide {
@@ -46,7 +46,7 @@
 }
 
 .slide-content {
-  @apply bg-white rounded-xl shadow-sm p-8 mb-8;
+  @apply bg-white rounded-xl shadow-sm p-12 mb-8 max-w-4xl mx-auto;
 }
 
 .slide-nav {
@@ -62,11 +62,11 @@
 }
 
 .topic-chip {
-  @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-rose-50 text-rose-600 mb-4;
+  @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-rose-50 text-rose-600 mb-6;
 }
 
 .title {
-  @apply text-4xl font-semibold mb-6 tracking-tight;
+  @apply text-4xl font-semibold mb-8 tracking-tight text-gray-800;
 }
 
 .subtitle {
@@ -74,11 +74,29 @@
 }
 
 .content-grid {
-  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+  @apply grid gap-8 md:grid-cols-3;
+}
+
+p {
+  @apply text-lg leading-relaxed text-gray-700;
+  line-height: 1.8;
+}
+
+/* Additional styles for better text formatting */
+ul, ol {
+  @apply space-y-4 my-6;
+}
+
+li {
+  @apply leading-relaxed;
+}
+
+strong {
+  @apply text-gray-900 font-medium;
 }
 
 .feature-card {
-  @apply p-6 rounded-lg border border-gray-100 transition-all duration-300 hover:shadow-md hover:border-gray-200;
+  @apply p-8 rounded-lg border border-gray-100 transition-all duration-300 hover:shadow-md hover:border-gray-200;
 }
 
 @keyframes fadeIn {

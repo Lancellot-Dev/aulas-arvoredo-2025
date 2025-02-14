@@ -254,7 +254,7 @@ const Index = () => {
           <h1 className="title">{slides[currentSlide].title}</h1>
           <div className="content-grid">
             <div className="col-span-2">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
                 {slides[currentSlide].content}
               </p>
             </div>
