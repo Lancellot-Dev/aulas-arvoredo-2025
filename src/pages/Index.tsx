@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -106,121 +105,95 @@ Exemplo: Arduino, Raspberry Pi`,
   },
   {
     id: 4,
-    topic: "Propósito",
-    title: "Aplicações e Impacto na Sociedade",
-    content: `Os computadores revolucionaram praticamente todos os aspectos da vida moderna:
+    topic: "Instituto Arvoredo",
+    title: "Nossa História e Missão",
+    content: `Fundado em junho de 2016, o Instituto Arvoredo nasceu da paixão pelo meio ambiente. Nossa jornada:
 
-1. Ciência e Pesquisa:
-• Sequenciamento de DNA
-• Previsão do tempo
-• Simulações físicas
-• Descoberta de medicamentos
+Início e Crescimento Digital:
+• Começamos em uma garagem, com forte presença digital
+• Alcance de mais de meio milhão de pessoas
+• Palestra "Hábitos Angulares" como marco de transformação
 
-2. Medicina:
-• Diagnóstico por imagem
-• Cirurgias robóticas
-• Prontuários eletrônicos
-• Telemedicina
+Expansão e Realizações:
+• Plantio inicial de 200 mudas no Parque da Cidade
+• Criação do Espaço Cerrado para educação ambiental
+• Aquisição de área de 20 hectares para nova sede
+• Atuação em 14 estados e expansão para 4 países
 
-3. Educação:
-• Ensino à distância
-• Simuladores de treinamento
-• Recursos interativos
-• Inteligência artificial adaptativa
-
-4. Negócios:
-• Automação de processos
-• Big Data e Analytics
-• Comércio eletrônico
-• Sistemas de gestão
-
-5. Entretenimento:
-• Jogos e realidade virtual
-• Streaming de mídia
-• Redes sociais
-• Criação digital
-
-Impacto Social:
-• Transformação do mercado de trabalho
-• Novas formas de comunicação
-• Democratização do conhecimento
-• Questões de privacidade e segurança`,
+Projeto Reciclotech:
+• Credenciado pelo Governo do DF
+• Foco em descarte adequado de lixo eletrônico
+• Capacitação profissional em informática
+• Recondicionamento de equipamentos eletrônicos
+• Promoção da inclusão digital`,
     image: "photo-1461749280684-dccba630e2f6"
   },
   {
     id: 5,
-    topic: "Fundamentos",
-    title: "Como os Computadores Funcionam",
-    content: `Entendendo o funcionamento básico dos computadores:
+    topic: "Uniprocessus",
+    title: "Parceria Educacional",
+    content: `A Uniprocessus, fundada em 1991, é nossa parceira estratégica na educação:
 
-1. Sistema Binário:
-• Baseado em 0s e 1s
-• Bit: Unidade básica
-• Byte: 8 bits
-• Representação de dados
+História e Crescimento:
+• Início com cursos preparatórios para carreiras jurídicas
+• Expansão para outras áreas essenciais
+• Reconhecimento pelo MEC
+• Diversificação de modalidades de ensino
 
-2. Ciclo Básico:
-• Busca de instrução
-• Decodificação
-• Execução
-• Armazenamento
+Nossa Parceria:
+• Cursos profissionalizantes em informática
+• Níveis médio e básico
+• Montagem de computadores
+• Pacote Office e design gráfico
+• Inteligência artificial e redes sociais
 
-3. Hierarquia de Memória:
-• Registradores (mais rápidos)
-• Cache L1, L2, L3
-• Memória RAM
-• Armazenamento em disco
+Horários Flexíveis:
+• Segunda a quinta-feira
+• Períodos: matutino, vespertino e noturno
+• Formação completa para o mercado de trabalho
 
-4. Pipeline de Instruções:
-• Execução paralela
-• Otimização de desempenho
-• Branch prediction
-• Superescalaridade
-
-Curiosidades:
-• Um processador moderno pode executar bilhões de instruções por segundo
-• A primeira memória RAM custava US$ 400/KB em 1975
-• O primeiro disco rígido da IBM armazenava 5MB por US$ 50.000`,
-    image: "photo-1555949963-ff9fe0c870eb"
+Oportunidades para Alunos:
+• Continuidade nos estudos após Reciclotech
+• Variedade de cursos superiores
+• Foco em desenvolvimento profissional`,
+    image: "photo-1485827404703-89b55fcc595e"
   },
   {
     id: 6,
-    topic: "Futuro",
-    title: "Tendências e Inovações",
-    content: `O futuro da computação promete avanços revolucionários:
+    topic: "Plano de Ensino",
+    title: "Estrutura do Curso",
+    content: `Nosso curso é estruturado em módulos práticos e teóricos:
 
-1. Computação Quântica:
-• Qubits ao invés de bits
-• Processamento paralelo massivo
-• Criptografia quântica
-• Simulações moleculares
+Módulo 1 - Fundamentos (Aulas 1-3):
+• Introdução ao curso
+• História dos computadores
+• Componentes de hardware
 
-2. Inteligência Artificial:
-• Machine Learning avançado
-• Processamento de linguagem natural
-• Visão computacional
-• Sistemas autônomos
+Módulo 2 - Prática (Aulas 4-8):
+• Montagem de PC
+• Sistemas operacionais
+• Redes e internet
 
-3. Computação Neuromórfica:
-• Inspirada no cérebro humano
-• Baixo consumo de energia
-• Processamento em tempo real
-• Aplicações em robótica
+Módulo 3 - Office (Aulas 9-13):
+• Word básico e avançado
+• Excel fundamentos e funções
+• PowerPoint
 
-4. Internet das Coisas (IoT):
-• Dispositivos conectados
-• Cidades inteligentes
-• Automação residencial
-• Indústria 4.0
+Módulo 4 - Tecnologias Modernas (Aulas 14-17):
+• ChatGPT e IA
+• Criação de textos e imagens
+• Projetos práticos
 
-Desafios Futuros:
-• Consumo de energia
-• Limites físicos dos processadores
-• Segurança e privacidade
-• Impacto ambiental
+Módulo 5 - Design e Mídias (Aulas 18-23):
+• Design gráfico
+• Canva
+• Redes sociais
 
-Uma reflexão importante é como essas tecnologias afetarão a sociedade e como podemos garantir seu uso ético e sustentável.`,
-    image: "photo-1485827404703-89b55fcc595e"
+Avaliação:
+• Montagem prática de PC
+• Projeto com ChatGPT e Word
+• Avaliação final específica`,
+    image: "photo-1555949963-ff9fe0c870eb"
   }
 ];
 
