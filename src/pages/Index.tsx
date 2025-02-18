@@ -1,7 +1,8 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
 
 const slides = [
   {
@@ -111,58 +112,67 @@ const Index = () => {
   const progress = ((currentSlide + 1) / slides.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <div className="progress-bar" style={{ width: `${progress}%` }} />
-      
-      <div className="slide-container">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-          className="slide-content"
-        >
-          <span className="topic-chip">{slides[currentSlide].topic}</span>
-          <h1 className="title">{slides[currentSlide].title}</h1>
-          <div className="content-grid">
-            <div className="col-span-2">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
-                {slides[currentSlide].content}
-              </p>
-            </div>
-            <div className="relative h-64 rounded-lg overflow-hidden ">
-            <img
-              src={slides[currentSlide].image}
-              alt={slides[currentSlide].title}
-              className="object-uncover w-full h-full"
-              loading="lazy"
-            />
+    <SidebarProvider>
+      <div className="flex min-h-screen w-full">
+        <AppSidebar />
+        <div className="flex-1 bg-gradient-to-b from-gray-50 to-gray-100">
+          <div className="p-4">
+            <SidebarTrigger />
+          </div>
+          
+          <div className="progress-bar" style={{ width: `${progress}%` }} />
+          
+          <div className="slide-container">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="slide-content"
+            >
+              <span className="topic-chip">{slides[currentSlide].topic}</span>
+              <h1 className="title">{slides[currentSlide].title}</h1>
+              <div className="content-grid">
+                <div className="col-span-2">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                    {slides[currentSlide].content}
+                  </p>
+                </div>
+                <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                  <img
+                    src={slides[currentSlide].image}
+                    alt={slides[currentSlide].title}
+                    className="object-cover w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="slide-nav">
+              <button
+                onClick={prevSlide}
+                className="slide-nav-button"
+                aria-label="Slide anterior"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <span className="flex items-center px-4 text-sm font-medium">
+                {currentSlide + 1} / {slides.length}
+              </span>
+              <button
+                onClick={nextSlide}
+                className="slide-nav-button"
+                aria-label="Próximo slide"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
             </div>
           </div>
-        </motion.div>
-
-        <div className="slide-nav">
-          <button
-            onClick={prevSlide}
-            className="slide-nav-button"
-            aria-label="Slide anterior"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <span className="flex items-center px-4 text-sm font-medium">
-            {currentSlide + 1} / {slides.length}
-          </span>
-          <button
-            onClick={nextSlide}
-            className="slide-nav-button"
-            aria-label="Próximo slide"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
         </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 
