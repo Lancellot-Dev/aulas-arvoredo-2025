@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -19,7 +18,7 @@ const slides = [
 • Disseminação de informações ambientais relevantes
 
 O Instituto nasceu no ambiente digital com o objetivo claro de inspirar ações ambientais e compartilhar conhecimento especializado.`,
-    image: "/imagesa.png"
+    image: "/imagesa.png",
   },
   {
     id: 2,
@@ -44,7 +43,7 @@ Marco Transformador:
 • Convite para palestra em SIPAT de multinacional
 • "Hábitos Angulares" como ponto de virada
 • Início de um novo ciclo de sucesso`,
-    image: "/arvoredo.jpg"
+    image: "/arvoredo.jpg",
   },
   {
     id: 3,
@@ -52,7 +51,7 @@ Marco Transformador:
     title: "Expansão e Melhoria Contínua",
     content: `Após o sucesso da palestra, o Instituto Arvoredo começou a expandir suas ações, iniciando com o plantio de 200 mudas no Parque da Cidade de Brasília, contando com a participação de 30 pessoas. Esse projeto cresceu rapidamente, assim como a compreensão sobre o bioma Cerrado, graças à orientação da Professora Rosângela Corrêa. A partir desse conhecimento, o Instituto criou o Espaço Cerrado, um local dedicado à educação ambiental e atividades sociais. O crescimento contínuo levou à aquisição de uma área de 20 hectares, onde foi estabelecida a nova sede do Instituto. A partir dessa base, o foco se expandiu para incluir restauração ecológica e a promoção do Cerrado. Hoje, o Instituto Arvoredo é credenciado pelo Governo do Distrito Federal para o programa Reciclotech e atua em mais de 14 estados, expandindo para 4 países. O Instituto continua a unir milhares de pessoas em prol de um futuro mais sustentável, oferecendo educação ambiental, trilhas ecológicas e muito mais.
 `,
-    image: "/plante uma arvore.jpg"
+    image: "/plante uma arvore.jpg",
   },
   {
     id: 4,
@@ -60,7 +59,7 @@ Marco Transformador:
     title: "O que é o Projeto Reciclotech?",
     content: `O Projeto Reciclotech é um dos pilares mais recentes e importantes do Instituto Arvoredo. Credenciado pelo Governo do Distrito Federal, o Reciclotech foi criado com o objetivo de enfrentar um dos maiores desafios ambientais da atualidade: o descarte inadequado de lixo eletrônico. O programa visa transformar esse desafio em oportunidade, oferecendo capacitação profissional para jovens e adultos em áreas como informática básica, manutenção de computadores e robótica.
 `,
-    image: "/reciclotech.png"
+    image: "/reciclotech.png",
   },
   {
     id: 5,
@@ -69,7 +68,7 @@ Marco Transformador:
     content: `A Uniprocessus, com sua razão social de Instituto Processus de Cultura e Aperfeiçoamento Jurídico Ltda, começou em 1991 oferecendo cursos preparatórios para concursos de alto nível, especialmente para carreiras jurídicas como Juiz de Direito e Promotor de Justiça. Desde a primeira aula ministrada por seu fundador, o Professor Jaci Fernandes de Araújo, a instituição foi moldada com um forte compromisso com a qualidade de ensino, o que a levou a se tornar um centro de referência em educação jurídica no Distrito Federal e em todo o Brasil.
     
 `,
-    image: "logo Uniprocessus.png"
+    image: "logo Uniprocessus.png",
   },
   {
     id: 6,
@@ -84,7 +83,7 @@ Horários Flexíveis:
     - Matutino
     - Vespertino
     - Noturno`,
-    image: "/Uniprocessus.jpg"
+    image: "/Uniprocessus.jpg",
   },
   {
     id: 7,
@@ -120,8 +119,8 @@ Módulo Design (Aulas 18-23):
 
 Avaliação Final (Aula 24):
 • Apresentação de Trabalho final`,
-    image: "pde.png"
-  }
+    image: "pde.png",
+  },
 ];
 
 const Index = () => {
@@ -146,9 +145,9 @@ const Index = () => {
           <div className="p-4">
             <SidebarTrigger />
           </div>
-          
+
           <div className="progress-bar" style={{ width: `${progress}%` }} />
-          
+
           <div className="slide-container">
             <motion.div
               key={currentSlide}
@@ -158,19 +157,21 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="slide-content"
             >
-              <span className="topic-chip">{slides[currentSlide].topic}</span>
-              <h1 className="title">{slides[currentSlide].title}</h1>
-              <div className="content-grid">
+              <div className="content-grid flex items-start gap-6">
                 <div className="col-span-2">
+                  <span className="topic-chip">
+                    {slides[currentSlide].topic}
+                  </span>
+                  <h1 className="title">{slides[currentSlide].title}</h1>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
                     {slides[currentSlide].content}
                   </p>
                 </div>
-                <div className="relative h-[500px] rounded-lg overflow-hidden mb-8">
+                <div className="relative h-64 rounded-lg self-start">
                   <img
                     src={slides[currentSlide].image}
                     alt={slides[currentSlide].title}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="w-full h-full object-uncover rounded-lg"
                     loading="lazy"
                   />
                 </div>
