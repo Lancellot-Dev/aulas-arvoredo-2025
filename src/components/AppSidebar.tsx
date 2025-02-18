@@ -1,5 +1,5 @@
 
-import { Download, Menu, MonitorPlay } from "lucide-react";
+import { Download, MonitorPlay } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -11,15 +11,21 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
+interface AppSidebarProps {
+  currentLesson: number;
+}
+
 const lessons = [
-  { number: 1, title: "Introdução ao Instituto Arvoredo" },
-  { number: 2, title: "Em breve" },
-  { number: 3, title: "Em breve" },
-  { number: 4, title: "Em breve" },
-  { number: 5, title: "Em breve" },
+  { number: 1, title: "Introdução ao Instituto Arvoredo", downloadUrl: "/slides-aula1.pdf" },
+  { number: 2, title: "Em breve", downloadUrl: "/slides-aula2.pdf" },
+  { number: 3, title: "Em breve", downloadUrl: "/slides-aula3.pdf" },
+  { number: 4, title: "Em breve", downloadUrl: "/slides-aula4.pdf" },
+  { number: 5, title: "Em breve", downloadUrl: "/slides-aula5.pdf" },
 ];
 
-export function AppSidebar() {
+export function AppSidebar({ currentLesson }: AppSidebarProps) {
+  const currentLessonData = lessons.find(lesson => lesson.number === currentLesson);
+
   return (
     <Sidebar className="bg-[#1e1b4b] text-white">
       <SidebarContent>
@@ -52,12 +58,12 @@ export function AppSidebar() {
 
         <div className="absolute bottom-4 left-0 right-0 px-4">
           <a
-            href="/material-do-curso.pdf"
+            href={currentLessonData?.downloadUrl}
             download
             className="flex items-center gap-2 w-full px-4 py-2 bg-white/10 hover:bg-white/20 rounded-md transition-colors"
           >
             <Download className="w-4 h-4" />
-            <span>Material do Curso</span>
+            <span>Material da Aula {currentLesson}</span>
           </a>
         </div>
       </SidebarContent>

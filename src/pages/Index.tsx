@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -100,6 +101,7 @@ Avaliação Final (Aula 24):
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const currentLesson = 1; // This is lesson 1
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -114,7 +116,7 @@ const Index = () => {
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full">
-        <AppSidebar />
+        <AppSidebar currentLesson={currentLesson} />
         <div className="flex-1 bg-gradient-to-b from-gray-50 to-gray-100">
           <div className="p-4">
             <SidebarTrigger />
@@ -139,11 +141,11 @@ const Index = () => {
                     {slides[currentSlide].content}
                   </p>
                 </div>
-                <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
                   <img
                     src={slides[currentSlide].image}
                     alt={slides[currentSlide].title}
-                    className="object-cover w-full h-full"
+                    className="absolute inset-0 w-full h-full object-contain bg-gray-50"
                     loading="lazy"
                   />
                 </div>
