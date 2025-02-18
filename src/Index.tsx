@@ -132,7 +132,7 @@ const Index = () => {
                 {slides[currentSlide].content}
               </p>
             </div>
-            <div className="relative h-32 rounded-lg overflow-hidden ">
+            <div className="relative h-64 rounded-lg overflow-hidden ">
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].title}
