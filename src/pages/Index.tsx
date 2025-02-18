@@ -89,7 +89,10 @@ Módulo IA (Aulas 14-17):
 Módulo Design (Aulas 18-23):
 • Fundamentos de design
 • Introdução ao Canva
-• Redes sociais`,
+• Redes sociais
+
+Avaliação Final (Aula 24):
+• Apresentação de Trabalho final`,
     image: "pde.png"
   }
 ];
