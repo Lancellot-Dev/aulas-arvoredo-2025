@@ -10,15 +10,40 @@ const slides = [
     id: 1,
     topic: "História",
     title: "Fundação e Início",
-    content: `O Instituto Arvoredo foi fundado em junho de 2016, movido pela paixão dos seus fundadores pelo meio ambiente. No início, sem uma sede própria, as atividades eram realizadas nos intervalos dos trabalhos regulares, utilizando a garagem de casa como espaço de operações. A estratégia inicial focou em fortalecer a presença digital, principalmente por meio do Facebook, além da criação de um site com conteúdo educativo e artigos especializados. Assim, o Instituto Arvoredo nasceu no ambiente digital, com o objetivo de disseminar informações relevantes e inspirar ações ambientais.`,
-    image: "/imagesa.png" 
+    content: `O Instituto Arvoredo foi fundado em junho de 2016, movido pela paixão dos seus fundadores pelo meio ambiente. Nossa história começa de forma humilde e inspiradora:
+
+• Início em uma garagem como espaço de operações
+• Atividades realizadas nos intervalos dos trabalhos regulares
+• Forte estratégia de presença digital inicial
+• Foco no Facebook e site com conteúdo educativo
+• Disseminação de informações ambientais relevantes
+
+O Instituto nasceu no ambiente digital com o objetivo claro de inspirar ações ambientais e compartilhar conhecimento especializado.`,
+    image: "/imagesa.png"
   },
   {
     id: 2,
     topic: "Desenvolvimento",
     title: "Crescimento e Oportunidades",
-    content: `O rápido crescimento digital do Instituto Arvoredo fez com que sua mensagem alcançasse mais de meio milhão de pessoas em pouco tempo. No entanto, apesar desse sucesso online, as parcerias desejadas não estavam se concretizando, o que levou à percepção de que a proposta de valor precisava ser mais clara e direcionada. Com o auxílio de especialistas, o Instituto passou a organizar suas ações de forma mais estruturada, facilitando o engajamento de diferentes públicos, como indivíduos, empresas, escolas e voluntários. A grande virada aconteceu quando o Instituto foi convidado para palestrar em uma SIPAT de uma multinacional, onde a palestra "Hábitos Angulares" marcou o início de um novo ciclo de sucesso.
-`,
+    content: `O crescimento do Instituto Arvoredo foi marcado por importantes conquistas e aprendizados:
+
+Expansão Digital:
+• Alcance de mais de meio milhão de pessoas
+• Desenvolvimento de presença online significativa
+
+Evolução Estratégica:
+• Reestruturação da proposta de valor
+• Organização mais estruturada das ações
+• Melhor engajamento com diferentes públicos:
+  - Indivíduos
+  - Empresas
+  - Escolas
+  - Voluntários
+
+Marco Transformador:
+• Convite para palestra em SIPAT de multinacional
+• "Hábitos Angulares" como ponto de virada
+• Início de um novo ciclo de sucesso`,
     image: "/arvoredo.jpg"
   },
   {
@@ -141,11 +166,11 @@ const Index = () => {
                     {slides[currentSlide].content}
                   </p>
                 </div>
-                <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+                <div className="relative h-[500px] rounded-lg overflow-hidden mb-8">
                   <img
                     src={slides[currentSlide].image}
                     alt={slides[currentSlide].title}
-                    className="absolute inset-0 w-full h-full object-contain bg-gray-50"
+                    className="absolute inset-0 w-full h-full object-contain"
                     loading="lazy"
                   />
                 </div>
