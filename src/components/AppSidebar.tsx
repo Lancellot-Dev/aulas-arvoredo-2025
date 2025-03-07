@@ -10,17 +10,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Link } from "react-router-dom";
 
 interface AppSidebarProps {
   currentLesson: number;
 }
 
 const lessons = [
-  { number: 1, title: "Introdução ao Instituto Arvoredo", downloadUrl: "/slides-aula1.pdf" },
-  { number: 2, title: "História dos Computadores", downloadUrl: "/slides-aula2.pdf" },
-  { number: 3, title: "Em breve", downloadUrl: "/slides-aula3.pdf" },
-  { number: 4, title: "Em breve", downloadUrl: "/slides-aula4.pdf" },
-  { number: 5, title: "Em breve", downloadUrl: "/slides-aula5.pdf" },
+  { number: 1, title: "Introdução ao Instituto Arvoredo", downloadUrl: "/slides-aula1.pdf", path: "/" },
+  { number: 2, title: "História dos Computadores", downloadUrl: "/slides-aula2.pdf", path: "/aula2" },
+  { number: 3, title: "Em breve", downloadUrl: "/slides-aula3.pdf", path: "#" },
+  { number: 4, title: "Em breve", downloadUrl: "/slides-aula4.pdf", path: "#" },
+  { number: 5, title: "Em breve", downloadUrl: "/slides-aula5.pdf", path: "#" },
 ];
 
 export function AppSidebar({ currentLesson }: AppSidebarProps) {
@@ -42,13 +43,13 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
                 <SidebarMenuItem key={lesson.number}>
                   <SidebarMenuButton
                     asChild
-                    className="text-white hover:bg-white/10"
+                    className={`text-white hover:bg-white/10 ${currentLesson === lesson.number ? 'bg-white/20' : ''}`}
                     tooltip={lesson.title}
                   >
-                    <a href={lesson.number === 1 ? "/" : "#"}>
+                    <Link to={lesson.path}>
                       <MonitorPlay className="w-4 h-4" />
                       <span>Aula {lesson.number}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
