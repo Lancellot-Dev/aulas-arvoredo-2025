@@ -19,7 +19,7 @@ interface AppSidebarProps {
 const lessons = [
   { number: 1, title: "Introdução ao Instituto Arvoredo", downloadUrl: "/slides-aula1.pdf", path: "/" },
   { number: 2, title: "História dos Computadores", downloadUrl: "/slides-aula2.pdf", path: "/aula2" },
-  { number: 3, title: "Em breve", downloadUrl: "/slides-aula3.pdf", path: "#" },
+  { number: 3, title: "Componentes Básicos do Computador", downloadUrl: "/slides-aula3.pdf", path: "/aula3" },
   { number: 4, title: "Em breve", downloadUrl: "/slides-aula4.pdf", path: "#" },
   { number: 5, title: "Em breve", downloadUrl: "/slides-aula5.pdf", path: "#" },
 ];

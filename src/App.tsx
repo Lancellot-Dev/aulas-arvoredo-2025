@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute";
 import Index from "./pages/Index";
 import Aula2 from "./pages/Aula2";
+import Aula3 from "./pages/Aula3";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +37,14 @@ const App = () => (
               </PrivateRoute>
             }
           />
+          <Route
+            path="/aula3"
+            element={
+              <PrivateRoute>
+                <Aula3 />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -44,4 +53,3 @@ const App = () => (
 );
 
 export default App;
-
