@@ -8,6 +8,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import Index from "./pages/Index";
 import Aula2 from "./pages/Aula2";
 import Aula3 from "./pages/Aula3";
+import Aula4 from "./pages/Aula4";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -42,6 +43,14 @@ const App = () => (
             element={
               <PrivateRoute>
                 <Aula3 />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/aula4"
+            element={
+              <PrivateRoute>
+                <Aula4 />
               </PrivateRoute>
             }
           />

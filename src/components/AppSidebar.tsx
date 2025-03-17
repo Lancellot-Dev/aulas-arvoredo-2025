@@ -1,5 +1,5 @@
 
-import { Download, MonitorPlay } from "lucide-react";
+import { Download, LogOut, MonitorPlay } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -10,7 +10,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 interface AppSidebarProps {
   currentLesson: number;
@@ -20,12 +22,24 @@ const lessons = [
   { number: 1, title: "Introdução ao Instituto Arvoredo", downloadUrl: "/slides-aula1.pdf", path: "/" },
   { number: 2, title: "História dos Computadores", downloadUrl: "/slides-aula2.pdf", path: "/aula2" },
   { number: 3, title: "Componentes Básicos do Computador", downloadUrl: "/slides-aula3.pdf", path: "/aula3" },
-  { number: 4, title: "Em breve", downloadUrl: "/slides-aula4.pdf", path: "#" },
+  { number: 4, title: "Dimensionamento de Peças", downloadUrl: "/slides-aula4.pdf", path: "/aula4" },
   { number: 5, title: "Em breve", downloadUrl: "/slides-aula5.pdf", path: "#" },
 ];
 
 export function AppSidebar({ currentLesson }: AppSidebarProps) {
   const currentLessonData = lessons.find(lesson => lesson.number === currentLesson);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      toast.success("Logout realizado com sucesso!");
+      navigate("/auth");
+    } catch (error) {
+      toast.error("Erro ao fazer logout");
+      console.error("Logout error:", error);
+    }
+  };
 
   return (
     <Sidebar className="bg-[#1e1b4b] text-white">
@@ -57,7 +71,7 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <div className="absolute bottom-4 left-0 right-0 px-4">
+        <div className="absolute bottom-20 left-0 right-0 px-4">
           <a
             href={currentLessonData?.downloadUrl}
             download
@@ -66,6 +80,16 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
             <Download className="w-4 h-4" />
             <span>Material da Aula {currentLesson}</span>
           </a>
+        </div>
+
+        <div className="absolute bottom-4 left-0 right-0 px-4">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 w-full px-4 py-2 bg-red-500/20 hover:bg-red-500/30 rounded-md transition-colors text-white"
+          >
+            <LogOut className="w-4 h-4" />
+            <span>Sair</span>
+          </button>
         </div>
       </SidebarContent>
     </Sidebar>
