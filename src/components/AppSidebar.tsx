@@ -1,5 +1,5 @@
 
-import { Download, LogOut, MonitorPlay } from "lucide-react";
+import { Download, LogOut, MonitorPlay, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -13,6 +13,8 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
+import { useEffect, useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface AppSidebarProps {
   currentLesson: number;
@@ -29,6 +31,29 @@ const lessons = [
 export function AppSidebar({ currentLesson }: AppSidebarProps) {
   const currentLessonData = lessons.find(lesson => lesson.number === currentLesson);
   const navigate = useNavigate();
+  const [userName, setUserName] = useState<string>("");
+  const [userInitials, setUserInitials] = useState<string>("");
+
+  useEffect(() => {
+    async function getUserData() {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const userMetadata = user.user_metadata;
+        const name = userMetadata?.name || user.email?.split('@')[0] || 'Usuário';
+        setUserName(name);
+        
+        // Create initials from name (first letter of first and last name)
+        const nameParts = name.split(' ');
+        if (nameParts.length > 1) {
+          setUserInitials(`${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`);
+        } else {
+          setUserInitials(name.substring(0, 2).toUpperCase());
+        }
+      }
+    }
+    
+    getUserData();
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -44,7 +69,18 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
   return (
     <Sidebar className="bg-[#1e1b4b] text-white">
       <SidebarContent>
-        <div className="p-4 border-b border-white/10">
+        <div className="p-4 flex flex-col items-center border-b border-white/10">
+          <div className="flex items-center gap-3 mb-3 w-full">
+            <Avatar className="h-10 w-10 bg-indigo-700 border-2 border-indigo-500">
+              <AvatarFallback className="bg-indigo-800 text-white">
+                {userInitials}
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex flex-col">
+              <span className="text-sm font-medium">{userName}</span>
+              <span className="text-xs text-white/60">Aluno</span>
+            </div>
+          </div>
           <h2 className="text-xl font-semibold">Curso de Informática</h2>
           <p className="text-sm text-white/70">Instituto Arvoredo</p>
         </div>
