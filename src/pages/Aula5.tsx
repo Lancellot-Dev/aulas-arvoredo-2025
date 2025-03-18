@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Code, Windows, Terminal, Book, BookOpen, Smartphone, Computer, Apple, List, ListCheck, Keyboard } from "lucide-react";
+import { ChevronLeft, ChevronRight, Code, Terminal, Book, BookOpen, Smartphone, Computer, Apple, List, ListCheck, Keyboard } from "lucide-react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
