@@ -196,116 +196,105 @@ const Aula5 = () => {
             <SidebarTrigger />
           </div>
 
-          <div 
-            className="h-1 bg-indigo-600 transition-all duration-300 ease-in-out" 
-            style={{ width: `${progress}%` }} 
-          />
+          <div className="progress-bar" style={{ width: `${progress}%` }} />
 
-          <div className="max-w-7xl mx-auto p-6">
+          <div className="slide-container">
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-xl shadow-md overflow-hidden"
+              className="slide-content"
             >
-              <div className="p-8">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-2/3">
-                    <span className="inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full mb-4">
-                      {slides[currentSlide].topic}
-                    </span>
-                    <h1 className="text-3xl font-bold text-gray-800 mb-6">
-                      {slides[currentSlide].title}
-                    </h1>
-                    <div className="prose max-w-none">
-                      <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
-                        {slides[currentSlide].content}
-                      </p>
-                      
-                      {slides[currentSlide].table && !slides[currentSlide].shortcutsTable && (
-                        <div className="mt-6 mb-6 overflow-x-auto">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead>Sistema Operacional</TableHead>
-                                <TableHead>Tipo</TableHead>
-                                <TableHead>Usuário-alvo</TableHead>
-                                <TableHead>Customização</TableHead>
-                                <TableHead>Segurança</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {slides[currentSlide].tableContent.map((row, index) => (
-                                <TableRow key={index}>
-                                  <TableCell className="font-medium">{row.so}</TableCell>
-                                  <TableCell>{row.tipo}</TableCell>
-                                  <TableCell>{row.usuario}</TableCell>
-                                  <TableCell>{row.customizacao}</TableCell>
-                                  <TableCell>{row.seguranca}</TableCell>
-                                </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </div>
-                      )}
+              <div className="content-grid flex items-start gap-6">
+                <div className="col-span-2">
+                  <span className="topic-chip">
+                    {slides[currentSlide].topic}
+                  </span>
+                  <h1 className="title">{slides[currentSlide].title}</h1>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                    {slides[currentSlide].content}
+                  </p>
+                  
+                  {slides[currentSlide].table && !slides[currentSlide].shortcutsTable && (
+                    <div className="mt-6 mb-6 overflow-x-auto">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead>Sistema Operacional</TableHead>
+                            <TableHead>Tipo</TableHead>
+                            <TableHead>Usuário-alvo</TableHead>
+                            <TableHead>Customização</TableHead>
+                            <TableHead>Segurança</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {slides[currentSlide].tableContent.map((row, index) => (
+                            <TableRow key={index}>
+                              <TableCell className="font-medium">{row.so}</TableCell>
+                              <TableCell>{row.tipo}</TableCell>
+                              <TableCell>{row.usuario}</TableCell>
+                              <TableCell>{row.customizacao}</TableCell>
+                              <TableCell>{row.seguranca}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  )}
 
-                      {slides[currentSlide].shortcutsTable && (
-                        <div className="mt-6 mb-6 overflow-x-auto">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead>Atalho</TableHead>
-                                <TableHead>Função</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {slides[currentSlide].tableContent.map((row, index) => (
-                                <TableRow key={index}>
-                                  <TableCell className="font-medium">{row.atalho}</TableCell>
-                                  <TableCell>{row.funcao}</TableCell>
-                                </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </div>
-                      )}
+                  {slides[currentSlide].shortcutsTable && (
+                    <div className="mt-6 mb-6 overflow-x-auto">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead>Atalho</TableHead>
+                            <TableHead>Função</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {slides[currentSlide].tableContent.map((row, index) => (
+                            <TableRow key={index}>
+                              <TableCell className="font-medium">{row.atalho}</TableCell>
+                              <TableCell>{row.funcao}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
                     </div>
-                  </div>
-                  <div className="md:w-1/3">
-                    <div className="h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-                      <img
-                        src={slides[currentSlide].image}
-                        alt={slides[currentSlide].title}
-                        className="w-full h-full object-cover rounded-lg"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+                  )}
+                </div>
+                <div className="relative h-[500px] rounded-lg self-start">
+                  <img
+                    src={slides[currentSlide].image}
+                    alt={slides[currentSlide].title}
+                    className="w-full h-full object-contain rounded-lg"
+                    loading="lazy"
+                  />
                 </div>
               </div>
-
-              <div className="flex items-center justify-between bg-gray-50 px-8 py-4">
-                <button
-                  onClick={prevSlide}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow hover:bg-indigo-50 transition-colors"
-                  aria-label="Slide anterior"
-                >
-                  <ChevronLeft className="w-5 h-5 text-indigo-600" />
-                </button>
-                <span className="flex items-center px-4 text-sm font-medium text-gray-600">
-                  {currentSlide + 1} / {slides.length}
-                </span>
-                <button
-                  onClick={nextSlide}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow hover:bg-indigo-50 transition-colors"
-                  aria-label="Próximo slide"
-                >
-                  <ChevronRight className="w-5 h-5 text-indigo-600" />
-                </button>
-              </div>
             </motion.div>
+
+            <div className="slide-nav">
+              <button
+                onClick={prevSlide}
+                className="slide-nav-button"
+                aria-label="Slide anterior"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <span className="flex items-center px-4 text-sm font-medium">
+                {currentSlide + 1} / {slides.length}
+              </span>
+              <button
+                onClick={nextSlide}
+                className="slide-nav-button"
+                aria-label="Próximo slide"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
