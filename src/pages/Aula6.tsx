@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Globe, Wifi, Share2, Monitor, Chrome, Network } from "lucide-react";
@@ -17,7 +16,7 @@ Com o tempo, novas tecnologias foram introduzidas, levando ao desenvolvimento da
 Nos anos 1980 e 1990, protocolos como o TCP/IP se consolidaram, permitindo a comunicação padronizada entre diferentes sistemas.
 
 Atualmente, as redes são fundamentais para diversas aplicações, desde redes locais (LANs) até redes de grande escala (WANs e a própria Internet).`,
-    image: "/network-history.jpg",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2034&q=80",
   },
   {
     id: 2,
@@ -32,7 +31,7 @@ Atualmente, as redes são fundamentais para diversas aplicações, desde redes l
 5. Sessão – Gerencia sessões de comunicação entre dispositivos.
 6. Apresentação – Cuida da conversão e criptografia dos dados.
 7. Aplicação – Interface com o usuário e serviços como HTTP, FTP, SMTP.`,
-    image: "/osi-model.jpg",
+    image: "https://www.wifiman.com/imagens/blog/modelo-osi-sete-camadas.jpg",
   },
   {
     id: 3,
@@ -46,7 +45,7 @@ Atualmente, as redes são fundamentais para diversas aplicações, desde redes l
 4. Aplicação – Equivalente às camadas superiores do OSI (HTTP, SMTP, DNS etc.).
 
 A principal diferença entre os modelos é que o OSI é conceitual, enquanto o TCP/IP é prático e amplamente utilizado.`,
-    image: "/tcp-ip-model.jpg",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2034&q=80",
   },
   {
     id: 4,
@@ -63,7 +62,7 @@ A principal diferença entre os modelos é que o OSI é conceitual, enquanto o T
 • Anel – Cada dispositivo é ligado ao próximo, formando um círculo. Se um nó falhar, pode afetar a comunicação.
 
 • Híbrida – Combina elementos de várias topologias.`,
-    image: "/network-topologies.jpg",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
   },
   {
     id: 5,
@@ -78,7 +77,7 @@ A principal diferença entre os modelos é que o OSI é conceitual, enquanto o T
 • Wireless (Wi-Fi, Bluetooth etc.) – Conexões sem fio baseadas em ondas de rádio. Possuem mobilidade, mas são mais suscetíveis a interferências.
 
 Cada tecnologia é escolhida conforme o cenário de aplicação e os requisitos de desempenho da rede.`,
-    image: "/transmission-media.jpg",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
   },
   {
     id: 6,
@@ -95,7 +94,7 @@ Principais funcionalidades em comum:
 • Modo de navegação privada: Não salva histórico, cookies ou dados temporários.
 • Configurações personalizáveis: Aparência, privacidade e segurança.
 • Sincronização de dados: Permite salvar configurações e favoritos em uma conta (Google, Microsoft, etc.).`,
-    image: "/browsers.jpg",
+    image: "https://images.unsplash.com/photo-1573867639040-6dd25fa5f597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
   },
   {
     id: 7,
@@ -118,7 +117,7 @@ Opera:
 • VPN gratuita integrada e bloqueador de anúncios nativo.
 • Painel lateral para acesso rápido a redes sociais (WhatsApp, Telegram).
 • Workspaces para organizar abas em grupos temáticos (ex: Trabalho, Estudo).`,
-    image: "/browser-comparison.jpg",
+    image: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1162&q=80",
   },
 ];
 
@@ -145,52 +144,61 @@ const Aula6 = () => {
             <SidebarTrigger />
           </div>
 
-          <div className="progress-bar" style={{ width: `${progress}%` }} />
+          <div className="progress-bar w-full h-1 bg-gray-200 mb-4">
+            <div
+              className="h-full bg-indigo-600 transition-all duration-300 ease-in-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
 
-          <div className="slide-container">
+          <div className="slide-container p-6 max-w-7xl mx-auto">
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="slide-content"
+              className="slide-content mb-8"
             >
-              <div className="content-grid flex items-start gap-6">
-                <div className="col-span-2">
-                  <span className="topic-chip">
+              <div className="content-grid flex flex-col md:flex-row items-start gap-6">
+                <div className="w-full md:w-1/2 order-2 md:order-1">
+                  <span className="topic-chip inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium mb-3">
                     {slides[currentSlide].topic}
                   </span>
-                  <h1 className="title">{slides[currentSlide].title}</h1>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                  <h1 className="title text-3xl font-bold text-gray-900 mb-4">
+                    {slides[currentSlide].title}
+                  </h1>
+                  <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
                     {slides[currentSlide].content}
                   </p>
                 </div>
-                <div className="relative h-[500px] rounded-lg self-start">
-                  <img
-                    src={slides[currentSlide].image}
-                    alt={slides[currentSlide].title}
-                    className="w-full h-full object-contain rounded-lg"
-                    loading="lazy"
-                  />
+                <div className="w-full md:w-1/2 order-1 md:order-2 mb-6 md:mb-0">
+                  <div className="relative rounded-lg overflow-hidden shadow-lg aspect-video">
+                    <img
+                      src={slides[currentSlide].image}
+                      alt={slides[currentSlide].title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
 
-            <div className="slide-nav">
+            <div className="slide-nav flex justify-center items-center mt-8">
               <button
                 onClick={prevSlide}
-                className="slide-nav-button"
+                className="slide-nav-button bg-white rounded-full p-2 shadow-md text-gray-700 hover:bg-gray-100 transition-colors mr-4"
                 aria-label="Slide anterior"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
-              <span className="flex items-center px-4 text-sm font-medium">
+              <span className="flex items-center px-4 text-sm font-medium text-gray-600">
                 {currentSlide + 1} / {slides.length}
               </span>
               <button
                 onClick={nextSlide}
-                className="slide-nav-button"
+                className="slide-nav-button bg-white rounded-full p-2 shadow-md text-gray-700 hover:bg-gray-100 transition-colors ml-4"
                 aria-label="Próximo slide"
               >
                 <ChevronRight className="w-6 h-6" />
