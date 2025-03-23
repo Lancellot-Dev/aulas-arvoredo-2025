@@ -26,6 +26,7 @@ const lessons = [
   { number: 3, title: "Componentes Básicos do Computador", downloadUrl: "/slides-aula3.pdf", path: "/aula3" },
   { number: 4, title: "Dimensionamento de Peças", downloadUrl: "/slides-aula4.pdf", path: "/aula4" },
   { number: 5, title: "Software e Sistemas Operacionais", downloadUrl: "/slides-aula5.pdf", path: "/aula5" },
+  { number: 6, title: "Redes de Computadores", downloadUrl: "/slides-aula6.pdf", path: "/aula6" },
 ];
 
 export function AppSidebar({ currentLesson }: AppSidebarProps) {

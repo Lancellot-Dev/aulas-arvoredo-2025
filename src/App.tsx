@@ -10,6 +10,7 @@ import Aula2 from "./pages/Aula2";
 import Aula3 from "./pages/Aula3";
 import Aula4 from "./pages/Aula4";
 import Aula5 from "./pages/Aula5";
+import Aula6 from "./pages/Aula6";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -60,6 +61,14 @@ const App = () => (
             element={
               <PrivateRoute>
                 <Aula5 />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/aula6"
+            element={
+              <PrivateRoute>
+                <Aula6 />
               </PrivateRoute>
             }
           />
