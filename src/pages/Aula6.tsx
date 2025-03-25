@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Globe, Wifi, Share2, Monitor, Chrome, Network } from "lucide-react";
+import { ChevronLeft, ChevronRight, Globe, Wifi, Share2, Monitor, Chrome, Network, Link } from "lucide-react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 
@@ -120,6 +119,27 @@ Opera:
 • Workspaces para organizar abas em grupos temáticos (ex: Trabalho, Estudo).`,
     image: "/browser-comparison.jpg",
   },
+  {
+    id: 8,
+    topic: "Recursos Adicionais",
+    title: "Curso de Datilografia",
+    content: `Para desenvolver suas habilidades de digitação, é importante praticar regularmente com ferramentas adequadas.
+
+O curso de datilografia da AgilFingers oferece exercícios progressivos que ajudam a melhorar sua velocidade e precisão ao digitar.
+
+Benefícios de um bom treinamento em datilografia:
+• Aumento da produtividade em todas as tarefas que envolvem uso do computador
+• Redução da fadiga e desconforto ao digitar por longos períodos
+• Menor incidência de erros de digitação
+• Capacidade de manter o foco no conteúdo, não no teclado
+
+Clique no botão abaixo para acessar o curso gratuito:`,
+    image: "/typing-course.jpg",
+    link: {
+      url: "https://agilefingers.com/pt",
+      text: "Acessar Curso de Datilografia"
+    }
+  },
 ];
 
 const Aula6 = () => {
@@ -165,6 +185,17 @@ const Aula6 = () => {
                   <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
                     {slides[currentSlide].content}
                   </p>
+                  {slides[currentSlide].link && (
+                    <a 
+                      href={slides[currentSlide].link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                    >
+                      <Link className="w-4 h-4" />
+                      {slides[currentSlide].link.text}
+                    </a>
+                  )}
                 </div>
                 <div className="relative h-[500px] rounded-lg self-start">
                   <img
