@@ -1,4 +1,3 @@
-
 import { Download, LogOut, MonitorPlay, User } from "lucide-react";
 import {
   Sidebar,
@@ -27,6 +26,7 @@ const lessons = [
   { number: 4, title: "Dimensionamento de Peças", downloadUrl: "/slides-aula4.pdf", path: "/aula4" },
   { number: 5, title: "Software e Sistemas Operacionais", downloadUrl: "/slides-aula5.pdf", path: "/aula5" },
   { number: 6, title: "Redes de Computadores", downloadUrl: "/slides-aula6.pdf", path: "/aula6" },
+  { number: 7, title: "Microsoft Word", downloadUrl: "/slides-aula7.pdf", path: "/aula7" },
 ];
 
 export function AppSidebar({ currentLesson }: AppSidebarProps) {
