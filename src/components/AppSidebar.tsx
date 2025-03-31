@@ -1,3 +1,4 @@
+
 import { Download, LogOut, MonitorPlay, User } from "lucide-react";
 import {
   Sidebar,
@@ -69,7 +70,8 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
 
   return (
     <Sidebar className="bg-[#1e1b4b] text-white">
-      <SidebarContent>
+      <SidebarContent className="flex flex-col h-full">
+        {/* Header with user info - remains at the top */}
         <div className="p-4 flex flex-col items-center border-b border-white/10">
           <div className="flex items-center gap-3 mb-3 w-full">
             <Avatar className="h-10 w-10 bg-indigo-700 border-2 border-indigo-500">
@@ -86,29 +88,33 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
           <p className="text-sm text-white/70">Instituto Arvoredo</p>
         </div>
         
-        <SidebarGroup>
-          <SidebarGroupLabel className="text-white/70">Aulas</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {lessons.map((lesson) => (
-                <SidebarMenuItem key={lesson.number}>
-                  <SidebarMenuButton
-                    asChild
-                    className={`text-white hover:bg-white/10 ${currentLesson === lesson.number ? 'bg-white/20' : ''}`}
-                    tooltip={lesson.title}
-                  >
-                    <Link to={lesson.path}>
-                      <MonitorPlay className="w-4 h-4" />
-                      <span>Aula {lesson.number}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        {/* Aulas section now at index 1 (middle) */}
+        <div className="flex-grow overflow-auto">
+          <SidebarGroup>
+            <SidebarGroupLabel className="text-white/70">Aulas</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {lessons.map((lesson) => (
+                  <SidebarMenuItem key={lesson.number}>
+                    <SidebarMenuButton
+                      asChild
+                      className={`text-white hover:bg-white/10 ${currentLesson === lesson.number ? 'bg-white/20' : ''}`}
+                      tooltip={lesson.title}
+                    >
+                      <Link to={lesson.path}>
+                        <MonitorPlay className="w-4 h-4" />
+                        <span>Aula {lesson.number}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
 
-        <div className="absolute bottom-20 left-0 right-0 px-4">
+        {/* Download and Logout buttons now at index 0 (bottom) */}
+        <div className="mt-auto border-t border-white/10 p-4 flex flex-col gap-2">
           <a
             href={currentLessonData?.downloadUrl}
             download
@@ -117,9 +123,7 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
             <Download className="w-4 h-4" />
             <span>Material da Aula {currentLesson}</span>
           </a>
-        </div>
-
-        <div className="absolute bottom-4 left-0 right-0 px-4">
+          
           <button
             onClick={handleLogout}
             className="flex items-center gap-2 w-full px-4 py-2 bg-red-500/20 hover:bg-red-500/30 rounded-md transition-colors text-white"
@@ -132,3 +136,4 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
     </Sidebar>
   );
 }
+
