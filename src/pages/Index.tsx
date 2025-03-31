@@ -1,14 +1,25 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
 
 const slides = [
   {
     id: 1,
     topic: "História",
     title: "Fundação e Início",
-    content: `O Instituto Arvoredo foi fundado em junho de 2016, movido pela paixão dos seus fundadores pelo meio ambiente. No início, sem uma sede própria, as atividades eram realizadas nos intervalos dos trabalhos regulares, utilizando a garagem de casa como espaço de operações. A estratégia inicial focou em fortalecer a presença digital, principalmente por meio do Facebook, além da criação de um site com conteúdo educativo e artigos especializados. Assim, o Instituto Arvoredo nasceu no ambiente digital, com o objetivo de disseminar informações relevantes e inspirar ações ambientais.`,
-    image: "/imagesa.png" 
+    content: `O Instituto Arvoredo foi fundado em junho de 2016, movido pela paixão dos seus fundadores pelo meio ambiente. Nossa história começa de forma humilde e inspiradora:
+
+• Início em uma garagem como espaço de operações
+• Atividades realizadas nos intervalos dos trabalhos regulares
+• Forte estratégia de presença digital inicial
+• Foco no Facebook e site com conteúdo educativo
+• Disseminação de informações ambientais relevantes
+
+O Instituto nasceu no ambiente digital com o objetivo claro de inspirar ações ambientais e compartilhar conhecimento especializado.`,
+    image: "/imagesa.png",
   },
   {
     id: 2,
@@ -115,6 +126,7 @@ Avaliação Final (Aula 24):
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const currentLesson = 1; // This is lesson 1
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -127,63 +139,69 @@ const Index = () => {
   const progress = ((currentSlide + 1) / slides.length) * 100;
 
   return (
-    <div className="w-full bg-gradient-to-b from-gray-50 to-gray-100 rounded-lg p-6">
-      <div className="h-1 bg-blue-100 rounded-full mb-6">
-        <div 
-          className="h-1 bg-blue-600 rounded-full transition-all duration-300 ease-in-out" 
-          style={{ width: `${progress}%` }} 
-        />
-      </div>
-      
-      <motion.div
-        key={currentSlide}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto"
-      >
-        <span className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 rounded-full mb-4">
-          {slides[currentSlide].topic}
-        </span>
-        <h1 className="text-3xl font-bold mb-6">{slides[currentSlide].title}</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-2">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
-              {slides[currentSlide].content}
-            </p>
+    <SidebarProvider>
+      <div className="flex min-h-screen w-full">
+        <AppSidebar currentLesson={currentLesson} />
+        <div className="flex-1 bg-gradient-to-b from-gray-50 to-gray-100">
+          <div className="p-4">
+            <SidebarTrigger />
           </div>
-          <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={slides[currentSlide].image}
-              alt={slides[currentSlide].title}
-              className="object-cover w-full h-full"
-              loading="lazy"
-            />
+
+          <div className="progress-bar" style={{ width: `${progress}%` }} />
+
+          <div className="slide-container">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="slide-content"
+            >
+              <div className="content-grid flex items-start gap-6">
+                <div className="col-span-2">
+                  <span className="topic-chip">
+                    {slides[currentSlide].topic}
+                  </span>
+                  <h1 className="title">{slides[currentSlide].title}</h1>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                    {slides[currentSlide].content}
+                  </p>
+                </div>
+                <div className="relative h-[500px] rounded-lg self-start">
+                  <img
+                    src={slides[currentSlide].image}
+                    alt={slides[currentSlide].title}
+                    className="w-full h-full object-contain rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="slide-nav">
+              <button
+                onClick={prevSlide}
+                className="slide-nav-button"
+                aria-label="Slide anterior"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <span className="flex items-center px-4 text-sm font-medium">
+                {currentSlide + 1} / {slides.length}
+              </span>
+              <button
+                onClick={nextSlide}
+                className="slide-nav-button"
+                aria-label="Próximo slide"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
-      </motion.div>
-
-      <div className="flex justify-center items-center mt-8 space-x-4">
-        <button
-          onClick={prevSlide}
-          className="p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors"
-          aria-label="Slide anterior"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <span className="text-sm font-medium">
-          {currentSlide + 1} / {slides.length}
-        </span>
-        <button
-          onClick={nextSlide}
-          className="p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors"
-          aria-label="Próximo slide"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 

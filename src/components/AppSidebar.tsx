@@ -1,5 +1,4 @@
-
-import { Download, Home, LogOut, MonitorPlay, User } from "lucide-react";
+import { Download, LogOut, MonitorPlay, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -9,14 +8,12 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 
 interface AppSidebarProps {
   currentLesson: number;
@@ -71,76 +68,65 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
   };
 
   return (
-    <Sidebar variant="sidebar" collapsible="icon" className="border-r border-gray-200">
-      <SidebarContent className="flex flex-col justify-between h-full">
-        <div>
-          <div className="p-4 flex flex-col items-center border-b border-gray-200">
-            <div className="flex items-center gap-3 mb-3 w-full">
-              <Avatar className="h-10 w-10 bg-indigo-700 border-2 border-indigo-500">
-                <AvatarFallback className="bg-indigo-800 text-white">
-                  {userInitials}
-                </AvatarFallback>
-              </Avatar>
-              <div className="flex flex-col">
-                <span className="text-sm font-medium">{userName}</span>
-                <span className="text-xs text-gray-500">Aluno</span>
-              </div>
+    <Sidebar className="bg-[#1e1b4b] text-white">
+      <SidebarContent>
+        <div className="p-4 flex flex-col items-center border-b border-white/10">
+          <div className="flex items-center gap-3 mb-3 w-full">
+            <Avatar className="h-10 w-10 bg-indigo-700 border-2 border-indigo-500">
+              <AvatarFallback className="bg-indigo-800 text-white">
+                {userInitials}
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex flex-col">
+              <span className="text-sm font-medium">{userName}</span>
+              <span className="text-xs text-white/60">Aluno</span>
             </div>
-            <div className="flex items-center justify-between w-full">
-              <h2 className="text-lg font-semibold">Curso de Informática</h2>
-              <SidebarTrigger />
-            </div>
-            <p className="text-sm text-gray-500">Instituto Arvoredo</p>
           </div>
-          
-          <SidebarGroup>
-            <SidebarGroupLabel className="text-gray-500">Aulas</SidebarGroupLabel>
-            <SidebarGroupContent className="overflow-y-auto max-h-[calc(100vh-300px)]">
-              <SidebarMenu>
-                {lessons.map((lesson) => (
-                  <SidebarMenuItem key={lesson.number}>
-                    <SidebarMenuButton
-                      asChild
-                      isActive={currentLesson === lesson.number}
-                      className={`hover:bg-gray-100 ${currentLesson === lesson.number ? 'bg-gray-200' : ''}`}
-                      tooltip={lesson.title}
-                    >
-                      <Link to={lesson.path}>
-                        <MonitorPlay className="w-4 h-4" />
-                        <span>Aula {lesson.number}</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+          <h2 className="text-xl font-semibold">Curso de Informática</h2>
+          <p className="text-sm text-white/70">Instituto Arvoredo</p>
         </div>
         
-        {/* Footer section with download and logout buttons */}
-        <div className="mt-auto border-t border-gray-200">
-          {currentLessonData && (
-            <div className="px-4 py-3">
-              <a
-                href={currentLessonData.downloadUrl}
-                download
-                className="flex items-center gap-2 w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
-              >
-                <Download className="w-4 h-4" />
-                <span>Material da Aula {currentLesson}</span>
-              </a>
-            </div>
-          )}
-          
-          <div className="px-4 py-3">
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 w-full px-4 py-2 bg-red-500/20 hover:bg-red-500/30 rounded-md transition-colors text-red-700"
-            >
-              <LogOut className="w-4 h-4" />
-              <span>Sair</span>
-            </button>
-          </div>
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-white/70">Aulas</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {lessons.map((lesson) => (
+                <SidebarMenuItem key={lesson.number}>
+                  <SidebarMenuButton
+                    asChild
+                    className={`text-white hover:bg-white/10 ${currentLesson === lesson.number ? 'bg-white/20' : ''}`}
+                    tooltip={lesson.title}
+                  >
+                    <Link to={lesson.path}>
+                      <MonitorPlay className="w-4 h-4" />
+                      <span>Aula {lesson.number}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <div className="absolute bottom-20 left-0 right-0 px-4">
+          <a
+            href={currentLessonData?.downloadUrl}
+            download
+            className="flex items-center gap-2 w-full px-4 py-2 bg-white/10 hover:bg-white/20 rounded-md transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            <span>Material da Aula {currentLesson}</span>
+          </a>
+        </div>
+
+        <div className="absolute bottom-4 left-0 right-0 px-4">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 w-full px-4 py-2 bg-red-500/20 hover:bg-red-500/30 rounded-md transition-colors text-white"
+          >
+            <LogOut className="w-4 h-4" />
+            <span>Sair</span>
+          </button>
         </div>
       </SidebarContent>
     </Sidebar>
