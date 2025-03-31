@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { SidebarProvider } from "./components/ui/sidebar";
+import { AppSidebar } from "./components/AppSidebar";
 import Index from "./pages/Index";
 import Aula2 from "./pages/Aula2";
 import Aula3 from "./pages/Aula3";
@@ -29,7 +31,14 @@ const App = () => (
             path="/"
             element={
               <PrivateRoute>
-                <Index />
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar currentLesson={1} />
+                    <div className="flex-1 p-4">
+                      <Index />
+                    </div>
+                  </div>
+                </SidebarProvider>
               </PrivateRoute>
             }
           />
@@ -37,7 +46,14 @@ const App = () => (
             path="/aula2"
             element={
               <PrivateRoute>
-                <Aula2 />
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar currentLesson={2} />
+                    <div className="flex-1 p-4">
+                      <Aula2 />
+                    </div>
+                  </div>
+                </SidebarProvider>
               </PrivateRoute>
             }
           />
@@ -45,7 +61,14 @@ const App = () => (
             path="/aula3"
             element={
               <PrivateRoute>
-                <Aula3 />
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar currentLesson={3} />
+                    <div className="flex-1 p-4">
+                      <Aula3 />
+                    </div>
+                  </div>
+                </SidebarProvider>
               </PrivateRoute>
             }
           />
@@ -53,7 +76,14 @@ const App = () => (
             path="/aula4"
             element={
               <PrivateRoute>
-                <Aula4 />
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar currentLesson={4} />
+                    <div className="flex-1 p-4">
+                      <Aula4 />
+                    </div>
+                  </div>
+                </SidebarProvider>
               </PrivateRoute>
             }
           />
@@ -61,7 +91,14 @@ const App = () => (
             path="/aula5"
             element={
               <PrivateRoute>
-                <Aula5 />
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar currentLesson={5} />
+                    <div className="flex-1 p-4">
+                      <Aula5 />
+                    </div>
+                  </div>
+                </SidebarProvider>
               </PrivateRoute>
             }
           />
@@ -69,7 +106,14 @@ const App = () => (
             path="/aula6"
             element={
               <PrivateRoute>
-                <Aula6 />
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar currentLesson={6} />
+                    <div className="flex-1 p-4">
+                      <Aula6 />
+                    </div>
+                  </div>
+                </SidebarProvider>
               </PrivateRoute>
             }
           />
@@ -77,7 +121,14 @@ const App = () => (
             path="/aula7"
             element={
               <PrivateRoute>
-                <Aula7 />
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar currentLesson={7} />
+                    <div className="flex-1 p-4">
+                      <Aula7 />
+                    </div>
+                  </div>
+                </SidebarProvider>
               </PrivateRoute>
             }
           />
