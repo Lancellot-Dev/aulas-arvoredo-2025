@@ -92,9 +92,34 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
           <p className="text-sm text-gray-500">Instituto Arvoredo</p>
         </div>
         
+        {/* Download Button - Positioned at the top */}
+        {currentLessonData && (
+          <div className="px-4 py-3 border-b border-gray-200">
+            <a
+              href={currentLessonData.downloadUrl}
+              download
+              className="flex items-center gap-2 w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              <span>Material da Aula {currentLesson}</span>
+            </a>
+          </div>
+        )}
+        
+        {/* Logout Button - Positioned at the top below download */}
+        <div className="px-4 py-3 border-b border-gray-200">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 w-full px-4 py-2 bg-red-500/20 hover:bg-red-500/30 rounded-md transition-colors text-red-700"
+          >
+            <LogOut className="w-4 h-4" />
+            <span>Sair</span>
+          </button>
+        </div>
+        
         <SidebarGroup>
           <SidebarGroupLabel className="text-gray-500">Aulas</SidebarGroupLabel>
-          <SidebarGroupContent>
+          <SidebarGroupContent className="overflow-y-auto max-h-[calc(100vh-300px)]">
             <SidebarMenu>
               {lessons.map((lesson) => (
                 <SidebarMenuItem key={lesson.number}>
@@ -114,29 +139,6 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
-        <div className="absolute bottom-20 left-0 right-0 px-4">
-          {currentLessonData && (
-            <a
-              href={currentLessonData.downloadUrl}
-              download
-              className="flex items-center gap-2 w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              <span>Material da Aula {currentLesson}</span>
-            </a>
-          )}
-        </div>
-
-        <div className="absolute bottom-4 left-0 right-0 px-4">
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 w-full px-4 py-2 bg-red-500/20 hover:bg-red-500/30 rounded-md transition-colors text-red-700"
-          >
-            <LogOut className="w-4 h-4" />
-            <span>Sair</span>
-          </button>
-        </div>
       </SidebarContent>
     </Sidebar>
   );
