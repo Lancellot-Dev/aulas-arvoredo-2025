@@ -3,6 +3,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 const slides = [
   {
@@ -131,69 +132,74 @@ const Aula8 = () => {
   const progress = ((currentSlide + 1) / slides.length) * 100;
 
   return (
-    <div className="flex h-screen">
-      <AppSidebar currentLesson={8} />
-      <div className="flex-1 overflow-auto">
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-          <div className="h-1 bg-blue-500" style={{ width: `${progress}%` }} />
-          
-          <div className="max-w-6xl mx-auto p-6">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white rounded-xl shadow-md p-8"
-            >
-              <span className="inline-block px-3 py-1 mb-4 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">
-                {slides[currentSlide].topic}
-              </span>
-              <h1 className="text-3xl font-bold mb-6 text-gray-800">
-                {slides[currentSlide].title}
-              </h1>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-2">
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
-                    {slides[currentSlide].content}
-                  </p>
+    <SidebarProvider>
+      <div className="flex h-screen w-full">
+        <AppSidebar currentLesson={8} />
+        <div className="flex-1 overflow-auto">
+          <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+            <div className="p-4">
+              <SidebarTrigger />
+            </div>
+            <div className="h-1 bg-blue-500" style={{ width: `${progress}%` }} />
+            
+            <div className="max-w-6xl mx-auto p-6">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-xl shadow-md p-8"
+              >
+                <span className="inline-block px-3 py-1 mb-4 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">
+                  {slides[currentSlide].topic}
+                </span>
+                <h1 className="text-3xl font-bold mb-6 text-gray-800">
+                  {slides[currentSlide].title}
+                </h1>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="md:col-span-2">
+                    <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                      {slides[currentSlide].content}
+                    </p>
+                  </div>
+                  <div className="h-64 relative rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img
+                      src={slides[currentSlide].image}
+                      alt={slides[currentSlide].title}
+                      className="object-contain w-full h-full"
+                      onError={(e) => {
+                        e.currentTarget.src = "/placeholder.svg";
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="h-64 relative rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-                  <img
-                    src={slides[currentSlide].image}
-                    alt={slides[currentSlide].title}
-                    className="object-contain w-full h-full"
-                    onError={(e) => {
-                      e.currentTarget.src = "/placeholder.svg";
-                    }}
-                  />
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
 
-            <div className="flex justify-center items-center mt-8 space-x-4">
-              <button
-                onClick={prevSlide}
-                className="p-2 rounded-full bg-white shadow hover:bg-gray-50 transition-colors"
-                aria-label="Slide anterior"
-              >
-                <ChevronLeft className="w-6 h-6 text-gray-600" />
-              </button>
-              <span className="text-sm font-medium text-gray-500">
-                {currentSlide + 1} / {slides.length}
-              </span>
-              <button
-                onClick={nextSlide}
-                className="p-2 rounded-full bg-white shadow hover:bg-gray-50 transition-colors"
-                aria-label="Próximo slide"
-              >
-                <ChevronRight className="w-6 h-6 text-gray-600" />
-              </button>
+              <div className="flex justify-center items-center mt-8 space-x-4">
+                <button
+                  onClick={prevSlide}
+                  className="p-2 rounded-full bg-white shadow hover:bg-gray-50 transition-colors"
+                  aria-label="Slide anterior"
+                >
+                  <ChevronLeft className="w-6 h-6 text-gray-600" />
+                </button>
+                <span className="text-sm font-medium text-gray-500">
+                  {currentSlide + 1} / {slides.length}
+                </span>
+                <button
+                  onClick={nextSlide}
+                  className="p-2 rounded-full bg-white shadow hover:bg-gray-50 transition-colors"
+                  aria-label="Próximo slide"
+                >
+                  <ChevronRight className="w-6 h-6 text-gray-600" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 
