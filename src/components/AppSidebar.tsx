@@ -28,6 +28,7 @@ const lessons = [
   { number: 5, title: "Software e Sistemas Operacionais", downloadUrl: "/slides-aula5.pdf", path: "/aula5" },
   { number: 6, title: "Redes de Computadores", downloadUrl: "/slides-aula6.pdf", path: "/aula6" },
   { number: 7, title: "Microsoft Word", downloadUrl: "/slides-aula7.pdf", path: "/aula7" },
+  { number: 8, title: "Introdução ao Excel", downloadUrl: "/slides-aula8.pdf", path: "/aula8" },
 ];
 
 export function AppSidebar({ currentLesson }: AppSidebarProps) {
@@ -136,4 +137,3 @@ export function AppSidebar({ currentLesson }: AppSidebarProps) {
     </Sidebar>
   );
 }
-
