@@ -2,8 +2,9 @@
 import { AppSidebar } from "@/components/AppSidebar";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Button } from "@/components/ui/button";
 
 const slides = [
   {
@@ -174,6 +175,19 @@ const Aula8 = () => {
                     />
                   </div>
                 </div>
+
+                {currentSlide === slides.length - 1 && (
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <a 
+                      href="/base_de_dados.xlsx" 
+                      download
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                    >
+                      <Download className="w-4 h-4" />
+                      Baixar Material de Exercício (Excel)
+                    </a>
+                  </div>
+                )}
               </motion.div>
 
               <div className="flex justify-center items-center mt-8 space-x-4">
