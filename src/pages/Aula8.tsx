@@ -1,8 +1,7 @@
-
 import { AppSidebar } from "@/components/AppSidebar";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Download } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, FileText } from "lucide-react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 
@@ -177,7 +176,7 @@ const Aula8 = () => {
                 </div>
 
                 {currentSlide === slides.length - 1 && (
-                  <div className="mt-8 pt-6 border-t border-gray-200">
+                  <div className="mt-8 pt-6 border-t border-gray-200 flex gap-4 items-center">
                     <a 
                       href="/base_de_dados.xlsx" 
                       download
@@ -185,6 +184,14 @@ const Aula8 = () => {
                     >
                       <Download className="w-4 h-4" />
                       Baixar Material de Exercício (Excel)
+                    </a>
+                    <a 
+                      href="/EXERCICIO_FINAL_2025.xlsx" 
+                      download
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-md hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
+                    >
+                      <FileText className="w-4 h-4" />
+                      Baixar Exercício Final 2025
                     </a>
                   </div>
                 )}
