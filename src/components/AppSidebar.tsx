@@ -29,6 +29,7 @@ const lessons = [
   { number: 6, title: "Redes de Computadores", downloadUrl: "/slides-aula6.pdf", path: "/aula6" },
   { number: 7, title: "Microsoft Word", downloadUrl: "/slides-aula7.pdf", path: "/aula7" },
   { number: 8, title: "Introdução ao Excel", downloadUrl: "/slides-aula8.pdf", path: "/aula8" },
+  { number: 9, title: "Excel Básico, Intermediário e Avançado", downloadUrl: "/slides-aula9.pdf", path: "/aula9" },
 ];
 
 export function AppSidebar({ currentLesson }: AppSidebarProps) {

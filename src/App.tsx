@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +12,7 @@ import Aula5 from "./pages/Aula5";
 import Aula6 from "./pages/Aula6";
 import Aula7 from "./pages/Aula7";
 import Aula8 from "./pages/Aula8";
+import Aula9 from "./pages/Aula9";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -87,6 +87,14 @@ const App = () => (
             element={
               <PrivateRoute>
                 <Aula8 />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/aula9"
+            element={
+              <PrivateRoute>
+                <Aula9 />
               </PrivateRoute>
             }
           />
