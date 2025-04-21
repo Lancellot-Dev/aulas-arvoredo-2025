@@ -38,10 +38,10 @@ const slides = [
 🔹 4. Formatando Dados
 • Selecione a célula ou área.
 • Vá na aba "Página Inicial":
-  o Negrito / Itálico / Sublinhado.
-  o Alinhamento: esquerda, centro, direita.
-  o Cores e estilos de fonte.
-  o Formatar como Tabela: transforma seus dados em uma tabela organizada.`,
+  ○ Negrito / Itálico / Sublinhado.
+  ○ Alinhamento: esquerda, centro, direita.
+  ○ Cores e estilos de fonte.
+  ○ Formatar como Tabela: transforma seus dados em uma tabela organizada.`,
     image: "/excel-formatacao.jpg",
   },
   {
@@ -55,10 +55,10 @@ Digite as fórmulas começando com =. Exemplos:
 • =MÉDIA(B1:B3) → calcula a média dos valores em B1, B2 e B3.
 
 🔹 6. Criando um Gráfico
-1. Insira os dados (ex: nomes e valores).
-2. Selecione a tabela.
-3. Vá em "Inserir" → escolha um tipo de gráfico (coluna, pizza, barra...).
-4. O gráfico aparecerá automaticamente na planilha.`,
+1. Selecione os dados (ex: nomes e valores).
+2. Vá em "Inserir" → escolha um tipo de gráfico (coluna, pizza, barra...).
+3. O gráfico aparecerá automaticamente na planilha.
+4. Personalize usando as ferramentas de Design e Formato do Gráfico.`,
     image: "/excel-grafico.jpg",
   },
   {
@@ -124,7 +124,7 @@ Objetivo: Destacar automaticamente valores com cores.
 Objetivo: Resumir e analisar grandes volumes de dados.
 1. Selecione sua base de dados.
 2. Vá em "Inserir" → "Tabela Dinâmica".
-3. Arraste campos para “Linhas”, “Colunas”, “Valores”, “Filtros”.`,
+3. Arraste campos para "Linhas", "Colunas", "Valores", "Filtros".`,
     image: "/excel-dinamica.jpg",
   },
   {
@@ -169,13 +169,18 @@ Recursos: Mostrar Valores Como, % do Total, Inserir Segmentações, Linha do Tem
     topic: "Excel Avançado",
     title: "Macros, VBA, Validação Avançada",
     content: `🔹 4. Macros e VBA
-Automatize tarefas: "Exibir" > "Macros" > "Gravar Macro".
+Objetivo: Automatizar tarefas repetitivas no Excel.
+Como gravar uma macro:
+1. Vá em "Exibir" > "Macros" > "Gravar Macro".
+2. Dê um nome significativo à macro.
+3. Realize as ações que deseja automatizar.
+4. Clique em "Parar Gravação" quando terminar.
 
 🔹 5. Validação Avançada com Fórmulas
 Use fórmulas para regras de entrada (ex: =E(A1>HOJE())).
 
 🔹 6. Dashboards Interativos
-Combine tudo em uma única aba visual para relatórios executivos!`,
+Combine tabelas dinâmicas, gráficos, segmentações e controles de formulário para criar painéis analíticos completos.`,
     image: "/excel-macro-dashboard.jpg",
   },
 ];
@@ -198,11 +203,11 @@ const Aula9 = () => {
       <div className="flex h-screen w-full">
         <AppSidebar currentLesson={9} />
         <div className="flex-1 overflow-auto">
-          <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+          <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
             <div className="p-4">
               <SidebarTrigger />
             </div>
-            <div className="h-1 bg-blue-500" style={{ width: `${progress}%` }} />
+            <div className="h-1.5 bg-blue-600 rounded-r-full" style={{ width: `${progress}%` }} />
 
             <div className="max-w-6xl mx-auto p-6">
               <motion.div
@@ -211,25 +216,25 @@ const Aula9 = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-xl shadow-md p-8"
+                className="bg-white rounded-xl shadow-lg p-8 border border-gray-100"
               >
                 <span className="inline-block px-3 py-1 mb-4 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">
                   {slides[currentSlide].topic}
                 </span>
-                <h1 className="text-3xl font-bold mb-6 text-gray-800">
+                <h1 className="text-3xl font-bold mb-6 text-gray-800 font-serif">
                   {slides[currentSlide].title}
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-2">
-                    <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
+                    <p className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line font-serif">
                       {slides[currentSlide].content}
                     </p>
                   </div>
-                  <div className="h-64 relative rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+                  <div className="h-64 relative rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center border border-gray-200">
                     <img
                       src={slides[currentSlide].image}
                       alt={slides[currentSlide].title}
-                      className="object-contain w-full h-full"
+                      className="object-contain w-full h-full p-2"
                       onError={(e) => {
                         e.currentTarget.src = "/placeholder.svg";
                       }}
@@ -237,39 +242,44 @@ const Aula9 = () => {
                   </div>
                 </div>
 
-                {/* EXEMPLO: No final, pode inserir área de download se quiser */}
-                {/* {currentSlide === slides.length - 1 && (
+                {currentSlide === slides.length - 1 && (
                   <div className="mt-8 pt-6 border-t border-gray-200 flex gap-4 items-center">
                     <a
-                      href="/MATERIAL_EXCEL_AULA9.xlsx"
+                      href="/EXERCICIO_FINAL_2025.xlsx"
                       download
                       className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded-md hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-300"
                     >
                       <Download className="w-4 h-4" />
-                      Baixar Material Aula 9
+                      Baixar Exercício Final
                     </a>
                   </div>
-                )} */}
+                )}
               </motion.div>
 
-              <div className="flex justify-center items-center mt-8 space-x-4">
-                <button
+              <div className="flex justify-between items-center mt-8 mb-4 px-4">
+                <Button
                   onClick={prevSlide}
-                  className="p-2 rounded-full bg-white shadow hover:bg-gray-50 transition-colors"
+                  variant="outline"
+                  className="flex items-center gap-2 bg-white"
                   aria-label="Slide anterior"
                 >
-                  <ChevronLeft className="w-6 h-6 text-gray-600" />
-                </button>
-                <span className="text-sm font-medium text-gray-500">
+                  <ChevronLeft className="w-4 h-4" />
+                  <span className="hidden sm:inline">Anterior</span>
+                </Button>
+                
+                <span className="text-sm font-medium text-gray-700 bg-white px-3 py-1 rounded-full border">
                   {currentSlide + 1} / {slides.length}
                 </span>
-                <button
+                
+                <Button
                   onClick={nextSlide}
-                  className="p-2 rounded-full bg-white shadow hover:bg-gray-50 transition-colors"
+                  variant="outline"
+                  className="flex items-center gap-2 bg-white"
                   aria-label="Próximo slide"
                 >
-                  <ChevronRight className="w-6 h-6 text-gray-600" />
-                </button>
+                  <span className="hidden sm:inline">Próximo</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
               </div>
             </div>
           </div>
