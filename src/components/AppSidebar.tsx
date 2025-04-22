@@ -30,6 +30,7 @@ const lessons = [
   { number: 7, title: "Microsoft Word", downloadUrl: "/slides-aula7.pdf", path: "/aula7" },
   { number: 8, title: "Introdução ao Excel", downloadUrl: "/slides-aula8.pdf", path: "/aula8" },
   { number: 9, title: "Excel Básico, Intermediário e Avançado", downloadUrl: "/slides-aula9.pdf", path: "/aula9" },
+  { number: 10, title: "PowerPoint Básico", downloadUrl: "", path: "/aula10" },
 ];
 
 export function AppSidebar({ currentLesson }: AppSidebarProps) {
