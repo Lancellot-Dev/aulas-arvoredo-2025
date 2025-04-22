@@ -204,54 +204,62 @@ const Aula10 = () => {
             <div className="absolute left-0 top-0 h-2 bg-indigo-400 rounded" style={{ width: `${progress}%`, transition: 'width 0.4s' }} />
           </div>
 
-          <div className="slide-container max-w-5xl mx-auto px-4 py-6">
+          <div className="slide-container flex justify-center items-center relative max-w-7xl mx-auto px-2 sm:px-4 py-8 min-h-[65vh]">
+            {/* Fundo de imagem, se houver */}
+            {slide.image && (
+              <img
+                src={slide.image}
+                alt={slide.title}
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover object-center opacity-25 blur-sm select-none pointer-events-none transition-all duration-700"
+                style={{ zIndex: 1 }}
+                loading="lazy"
+              />
+            )}
+
+            {/* Bloco do texto centralizado, sobre imagem */}
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="slide-content"
+              className="relative z-10 w-full flex flex-col items-center"
+              style={{ minHeight: "440px" }}
             >
-              <div className="content-grid flex flex-col md:flex-row items-start gap-8">
-                <div className="flex-1 min-w-0">
-                  <span className="inline-flex items-center text-xs bg-indigo-200 text-indigo-900 px-3 py-1 rounded mb-2 font-semibold">{slide.icon}{slide.topic}</span>
-                  <h2 className="title text-2xl md:text-3xl font-bold text-indigo-900 mb-3">{slide.title}</h2>
-                  <div className="text-lg text-gray-700 leading-relaxed mb-6 whitespace-pre-line">
-                    {slide.content}
-                  </div>
+              <div className="bg-white/85 md:bg-white/75 rounded-xl shadow-xl px-6 md:px-12 py-7 backdrop-blur-md w-full md:max-w-3xl lg:max-w-4xl border border-indigo-100">
+                <span className="inline-flex items-center text-xs bg-indigo-200 text-indigo-900 px-3 py-1 rounded mb-3 font-semibold">
+                  {slide.icon}
+                  {slide.topic}
+                </span>
+                <h2 className="title text-3xl lg:text-4xl font-bold text-indigo-900 mb-4 text-center drop-shadow-md">
+                  {slide.title}
+                </h2>
+                <div className="text-lg md:text-xl text-gray-800 leading-relaxed mb-2 md:mb-4 whitespace-pre-line font-medium text-center">
+                  {slide.content}
                 </div>
-                {slide.image && (
-                  <div className="relative h-72 w-full md:w-80 rounded-lg self-start shadow-lg overflow-hidden bg-gray-100 border border-indigo-100">
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="w-full h-full object-contain rounded-lg hover:scale-105 transition-transform"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
               </div>
             </motion.div>
-            <div className="slide-nav flex items-center justify-center mt-4 gap-2">
-              <button
-                onClick={prevSlide}
-                className="slide-nav-button flex items-center justify-center bg-indigo-200 hover:bg-indigo-300 text-indigo-800 rounded p-2 transition-colors"
-                aria-label="Slide anterior"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <span className="flex items-center px-4 text-sm font-medium">
-                {currentSlide + 1} / {slides.length}
-              </span>
-              <button
-                onClick={nextSlide}
-                className="slide-nav-button flex items-center justify-center bg-indigo-200 hover:bg-indigo-300 text-indigo-800 rounded p-2 transition-colors"
-                aria-label="Próximo slide"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
+          </div>
+
+          <div className="slide-nav flex items-center justify-center mt-4 gap-2">
+            <button
+              onClick={prevSlide}
+              className="slide-nav-button flex items-center justify-center bg-indigo-200 hover:bg-indigo-300 text-indigo-800 rounded p-2 transition-colors"
+              aria-label="Slide anterior"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <span className="flex items-center px-4 text-sm font-medium">
+              {currentSlide + 1} / {slides.length}
+            </span>
+            <button
+              onClick={nextSlide}
+              className="slide-nav-button flex items-center justify-center bg-indigo-200 hover:bg-indigo-300 text-indigo-800 rounded p-2 transition-colors"
+              aria-label="Próximo slide"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
       </div>
